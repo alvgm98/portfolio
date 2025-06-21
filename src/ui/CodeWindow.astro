@@ -1,0 +1,191 @@
+---
+const { name, skill1, skill2, passion } = Astro.props;
+---
+
+<div class="code-window">
+   <div class="window-header">
+      <div class="window-controls">
+         <div class="control close"></div>
+         <div class="control minimize"></div>
+         <div class="control maximize"></div>
+      </div>
+      <div class="window-title">portfolio.js</div>
+   </div>
+   <div class="code-content">
+      <div class="code-line">
+         <span class="line-number">1</span>
+         <span class="code-text">
+            <span class="keyword">const</span>
+            <span class="variable">developer</span>
+            <span class="operator">=</span>
+            <span class="punctuation">&#123;</span>
+         </span>
+      </div>
+      <div class="code-line">
+         <span class="line-number">2</span>
+         <span class="code-text">
+            <span class="property">name</span><span class="punctuation">:</span>
+            <span class="string">'{name}'</span><span class="punctuation"
+               >,</span
+            >
+         </span>
+      </div>
+      <div class="code-line">
+         <span class="line-number">3</span>
+         <span class="code-text">
+            <span class="property">skills</span><span class="punctuation"
+               >:</span
+            >
+            <span class="punctuation">[</span><span class="string"
+               >'{skill1}'</span
+            ><span class="punctuation">,</span>
+            <span class="string">'{skill2}'</span><span class="punctuation"
+               >],</span
+            >
+         </span>
+      </div>
+      <div class="code-line">
+         <span class="line-number">4</span>
+         <span class="code-text">
+            <span class="property">passion</span><span class="punctuation"
+               >:</span
+            >
+            <span class="string">'{passion}'</span>
+         </span>
+      </div>
+      <div class="code-line">
+         <span class="line-number">5</span>
+         <span class="code-text">
+            <span class="punctuation">&#125;</span>
+         </span>
+      </div>
+   </div>
+   <div class="cursor"></div>
+</div>
+
+<style>
+   .code-window {
+      background: rgba(0, 0, 0, 0.8);
+      border-radius: 12px;
+      border: 1px solid var(--border-color);
+      backdrop-filter: blur(20px);
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+      position: relative;
+   }
+
+   .window-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem;
+      background: rgba(255, 255, 255, 0.05);
+      border-bottom: 1px solid var(--border-color);
+   }
+
+   .window-controls {
+      display: flex;
+      gap: 0.5rem;
+   }
+
+   .control {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+   }
+
+   .close {
+      background: #ff5f57;
+   }
+
+   .minimize {
+      background: #ffbd2e;
+   }
+
+   .maximize {
+      background: #28ca42;
+   }
+
+   .window-title {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+   }
+
+   .code-content {
+      padding: 1.5rem;
+      font-family: "Monaco", "Menlo", monospace;
+      font-size: 0.9rem;
+      line-height: 1.6;
+   }
+
+   .code-line {
+      display: flex;
+      align-items: center;
+      margin-bottom: 0.5rem;
+   }
+
+   .line-number {
+      width: 30px;
+      color: rgba(255, 255, 255, 0.3);
+      font-size: 0.8rem;
+   }
+
+   .keyword {
+      color: #ff79c6;
+   }
+
+   .variable {
+      color: #8be9fd;
+   }
+
+   .operator {
+      color: #ff79c6;
+   }
+
+   .property {
+      color: #50fa7b;
+   }
+
+   .string {
+      color: #f1fa8c;
+   }
+
+   .punctuation {
+      color: #f8f8f2;
+   }
+
+   .cursor {
+      position: absolute;
+      bottom: 2.7rem;
+      left: 4.5rem;
+      width: 2px;
+      background: #50fa7b;
+      animation: expand 1.5s infinite;
+   }
+
+   @keyframes expand {
+      0%,
+      100% {
+         height: 0;
+         opacity: 0;
+      }
+
+      25%,
+      75% {
+         opacity: 1;
+      }
+
+      50% {
+         height: 20px;
+         transform: translateY(10px);
+         opacity: 1;
+      }
+   }
+
+   @media (width < 872px) {
+      .code-window {
+         max-width: 100%;
+         margin: 0 auto;
+      }
+   }
+</style>
