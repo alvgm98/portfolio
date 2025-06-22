@@ -1,0 +1,54 @@
+---
+import { cssPropByCondition } from "~utils/cssHelpers";
+
+const {
+   size = "300px",
+   bgColor = "var(--primary-gradient)",
+   top,
+   bottom,
+   left,
+   right,
+   animationDuration = "5s",
+   animationDirection = "",
+} = Astro.props;
+
+const verticalPosition =
+   cssPropByCondition("top", top, !bottom) +
+   cssPropByCondition("bottom", bottom, !top);
+const horizontalPosition =
+   cssPropByCondition("left", left, !right) +
+   cssPropByCondition("right", right, !left);
+---
+
+<div
+   class="floating-dot"
+   style={`
+      width: ${size};
+      height: ${size};
+      background: ${bgColor};
+      ${verticalPosition}
+      ${horizontalPosition}
+      animation: float ${animationDuration} ease-in-out infinite ${animationDirection};
+   `}
+>
+</div>
+
+<style>
+   .floating-dot {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(1px);
+      opacity: 0.1;
+   }
+
+   @keyframes float {
+      0%,
+      100% {
+         transform: translateY(0px) rotate(0deg);
+      }
+
+      50% {
+         transform: translateY(-20px) rotate(180deg);
+      }
+   }
+</style>
