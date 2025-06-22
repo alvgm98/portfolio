@@ -1,4 +1,5 @@
 ---
+import TwinklingDot from "ui/decoratives/TwinklingDot.astro";
 import CodeWindow from "../ui/CodeWindow.astro";
 import FolatingDot from "../ui/decoratives/FolatingDot.astro";
 
@@ -8,6 +9,7 @@ const [skill1, skill2] = ["Angular", "Spring Boot"];
 <section class="hero">
    <!-- Decoration -->
    <FolatingDot top="10%" right="-150px" animationDuration="6s" />
+   <FolatingDot size="100px" top="45%" left="5%" animationDuration="13s" />
    <FolatingDot
       size="200px"
       bgColor="var(--secondary-gradient)"
@@ -23,19 +25,22 @@ const [skill1, skill2] = ["Angular", "Spring Boot"];
       right="20%"
       animationDuration="7s"
    />
-   <FolatingDot
-      size="100px"
-      top="45%"
-      left="5%"
-      animationDuration="13s"
-   />
-   <!-- <div class="floating-dots"> -->
-   <div class="dot"></div>
-   <div class="dot"></div>
-   <div class="dot"></div>
-   <div class="dot"></div>
-   <div class="dot"></div>
-   <!-- </div>
+   <TwinklingDot top="20%" left="20%" animationDuration="3s" />
+   <TwinklingDot top="40%" left="80%" animationDuration="4s" />
+   <TwinklingDot size="6px" top="70%" left="30%" animationDuration="3s" />
+   <TwinklingDot size="6px" top="30%" left="60%" animationDuration="5s" />
+   <TwinklingDot size="9px" top="80%" left="70%" animationDuration="3s" />
+   <TwinklingDot size="5px" top="10%" left="10%" animationDuration="2s" />
+   <TwinklingDot size="8px" top="12%" left="50%" animationDuration="4s" />
+   <TwinklingDot size="7px" top="90%" left="90%" animationDuration="6s" />
+   <TwinklingDot size="10px" top="15%" left="80%" animationDuration="5s" />
+   <TwinklingDot size="4px" top="75%" left="25%" animationDuration="3s" />
+   <TwinklingDot size="5px" top="35%" left="65%" animationDuration="2s" />
+   <TwinklingDot size="6px" top="55%" left="15%" animationDuration="4s" />
+   <TwinklingDot size="8px" top="25%" left="45%" animationDuration="3s" />
+   <TwinklingDot size="9px" top="65%" left="85%" animationDuration="6s" />
+   <TwinklingDot size="7px" top="5%" left="35%" animationDuration="4s" />
+   <TwinklingDot size="10px" top="95%" left="55%" animationDuration="5s" />
 
    <!-- Main content -->
    <div class="hero-container">
@@ -67,15 +72,6 @@ const [skill1, skill2] = ["Angular", "Spring Boot"];
                   <span>Contactar</span>
                </button>
             </div>
-            <div class="tech-stack">
-               <span class="tech-label">Tech Stack:</span>
-               <div class="tech-icons">
-                  <div class="tech-item">React</div>
-                  <div class="tech-item">Node.js</div>
-                  <div class="tech-item">TypeScript</div>
-                  <div class="tech-item">MongoDB</div>
-               </div>
-            </div>
          </div>
 
          <div class="hero-visual">
@@ -104,53 +100,14 @@ const [skill1, skill2] = ["Angular", "Spring Boot"];
       align-items: center;
       background: radial-gradient(
             ellipse at top,
-            rgba(102, 126, 234, 0.1) 0%,
+            #667eea1a 0%,
             transparent 50%
          ),
          radial-gradient(
             ellipse at bottom right,
-            rgba(245, 87, 108, 0.1) 0%,
+            #f5576c1a 0%,
             transparent 50%
          );
-   }
-
-   .dot {
-      position: absolute;
-      width: 4px;
-      height: 4px;
-      background: rgba(255, 255, 255, 0.3);
-      border-radius: 50%;
-      animation: twinkle 3s ease-in-out infinite;
-   }
-
-   .dot:nth-child(1) {
-      top: 20%;
-      left: 20%;
-      animation-delay: 0s;
-   }
-
-   .dot:nth-child(2) {
-      top: 40%;
-      left: 80%;
-      animation-delay: 1s;
-   }
-
-   .dot:nth-child(3) {
-      top: 70%;
-      left: 30%;
-      animation-delay: 2s;
-   }
-
-   .dot:nth-child(4) {
-      top: 30%;
-      left: 60%;
-      animation-delay: 1.5s;
-   }
-
-   .dot:nth-child(5) {
-      top: 80%;
-      left: 70%;
-      animation-delay: 0.5s;
    }
 
    /* Container principal */
@@ -256,41 +213,7 @@ const [skill1, skill2] = ["Angular", "Spring Boot"];
       border-color: rgba(255, 255, 255, 0.3);
       transform: translateY(-2px);
    }
-
-   /* Tech Stack */
-   .tech-stack {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      flex-wrap: wrap;
-   }
-
-   .tech-label {
-      color: var(--text-secondary);
-      font-size: 0.9rem;
-   }
-
-   .tech-icons {
-      display: flex;
-      gap: 0.5rem;
-      flex-wrap: wrap;
-   }
-
-   .tech-item {
-      padding: 0.5rem 1rem;
-      background: var(--card-bg);
-      border: 1px solid var(--border-color);
-      border-radius: 25px;
-      font-size: 0.8rem;
-      backdrop-filter: blur(10px);
-      transition: all 0.3s ease;
-   }
-
-   .tech-item:hover {
-      background: rgba(255, 255, 255, 0.1);
-      transform: translateY(-2px);
-   }
-
+   
    /* Visual del código */
    .hero-visual {
       animation: slideInRight 1s ease-out;
@@ -322,17 +245,6 @@ const [skill1, skill2] = ["Angular", "Spring Boot"];
    }
 
    /* Animaciones */
-   @keyframes twinkle {
-      0%,
-      100% {
-         opacity: 0.3;
-      }
-
-      50% {
-         opacity: 1;
-      }
-   }
-
    @keyframes wave {
       0%,
       100% {

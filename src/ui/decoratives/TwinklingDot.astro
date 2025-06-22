@@ -1,0 +1,54 @@
+---
+import { cssPropByCondition } from "~utils/cssHelpers";
+
+const {
+   size = "4px",
+   top,
+   bottom,
+   left,
+   right,
+   animationDuration = "3s",
+} = Astro.props;
+
+const verticalPosition =
+   cssPropByCondition("top", top, !bottom) +
+   cssPropByCondition("bottom", bottom, !top);
+const horizontalPosition =
+   cssPropByCondition("left", left, !right) +
+   cssPropByCondition("right", right, !left);
+---
+
+<div
+   class="twinkling-dot"
+   style={`
+      width: ${size};
+      height: ${size};
+      ${verticalPosition}
+      ${horizontalPosition}
+      animation: twinkle ${animationDuration} ease-in-out infinite;
+   `}
+>
+</div>
+
+<style>
+   .twinkling-dot {
+      position: absolute;
+      background: #ffffff4d;
+      border-radius: 50%;
+   }
+
+   @keyframes twinkle {
+      0%,
+      100% {
+         opacity: .4;
+         transform: scale(.8);
+         box-shadow: 0 0 2px 1px #ffffff4d;;
+      }
+
+      50% {
+         opacity: 1;
+         transform: scale(1);
+         box-shadow: 0 0 6px 3px #ffffff4d;;
+      }
+   }
+</style>
