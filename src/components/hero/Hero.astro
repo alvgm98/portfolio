@@ -1,6 +1,8 @@
 ---
 import CodeWindow from "ui/CodeWindow.astro";
 import HeroDecoratives from "./HeroDecoratives.astro";
+import SlideButton from "ui/buttons/SlideButton.astro";
+import rocketIcon from "assets/icons/rocket.svg";
 
 const [skill1, skill2] = ["Angular", "Spring Boot"];
 ---
@@ -15,23 +17,16 @@ const [skill1, skill2] = ["Angular", "Spring Boot"];
                <span class="role">Full-Stack Developer</span>
             </h1>
             <p class="hero-description">
-               Creo experiencias digitales excepcionales combinando diseño
-               elegante con código limpio. Especializado en <strong
-                  >{skill1}</strong
-               >, <strong>{skill2}</strong> y tecnologías modernas.
+               Creo experiencias digitales excepcionales combinando
+               diseño elegante con código limpio. Especializado en
+               <strong>{skill1}</strong>, <strong>{skill2}</strong> y tecnologías modernas.
             </p>
             <div class="hero-buttons">
-               <button class="btn btn-primary">
-                  <span>Ver Proyectos</span>
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                     <path
-                        d="M7 17L17 7M17 7H7M17 7V17"
-                        stroke="currentColor"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"></path>
-                  </svg>
-               </button>
+               <SlideButton
+                  className="primary"
+                  text="Ver Proyectos"
+                  icon={rocketIcon}
+               />
                <button class="btn btn-secondary">
                   <span>Contactar</span>
                </button>
@@ -147,17 +142,6 @@ const [skill1, skill2] = ["Angular", "Spring Boot"];
       text-decoration: none;
       position: relative;
       overflow: hidden;
-   }
-
-   .btn-primary {
-      background: var(--primary-gradient);
-      color: white;
-      box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
-   }
-
-   .btn-primary:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 15px 40px rgba(102, 126, 234, 0.4);
    }
 
    .btn-secondary {
