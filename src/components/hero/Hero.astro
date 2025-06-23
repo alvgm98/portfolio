@@ -3,6 +3,7 @@ import CodeWindow from "ui/CodeWindow.astro";
 import HeroDecoratives from "./HeroDecoratives.astro";
 import SlideButton from "ui/buttons/SlideButton.astro";
 import rocketIcon from "assets/icons/rocket.svg";
+import mailIcon from "assets/icons/mail.svg";
 
 const [skill1, skill2] = ["Angular", "Spring Boot"];
 ---
@@ -27,9 +28,12 @@ const [skill1, skill2] = ["Angular", "Spring Boot"];
                   text="Ver Proyectos"
                   icon={rocketIcon}
                />
-               <button class="btn btn-secondary">
-                  <span>Contactar</span>
-               </button>
+               <SlideButton
+                  className="secondary"
+                  text="Contactar"
+                  icon={mailIcon}
+                  iconOffsetY="-2px"
+               />
             </div>
          </div>
 
@@ -48,12 +52,11 @@ const [skill1, skill2] = ["Angular", "Spring Boot"];
 
    <!-- Indicador de scroll -->
    <div class="scroll-indicator">
-      <div class="scroll-text">Scroll</div>
       <div class="scroll-arrow"></div>
    </div>
 </section>
 
-<style>
+<style is:global>
    .hero {
       position: relative;
       overflow: hidden;
@@ -83,11 +86,6 @@ const [skill1, skill2] = ["Angular", "Spring Boot"];
    /* Contenido de texto */
    .hero-text {
       animation: slideInLeft 1s ease-out;
-   }
-
-   .wave {
-      font-size: 1.5rem;
-      animation: wave 2s ease-in-out infinite;
    }
 
    .hero-title {
@@ -128,33 +126,8 @@ const [skill1, skill2] = ["Angular", "Spring Boot"];
       margin-bottom: 3rem;
    }
 
-   .btn {
-      padding: 1rem 2rem;
-      border: none;
-      border-radius: 50px;
-      font-size: 1rem;
-      font-weight: 500;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      text-decoration: none;
-      position: relative;
-      overflow: hidden;
-   }
-
-   .btn-secondary {
-      background: transparent;
-      color: var(--text-primary);
-      border: 2px solid var(--border-color);
-      backdrop-filter: blur(10px);
-   }
-
-   .btn-secondary:hover {
-      background: var(--card-bg);
-      border-color: rgba(255, 255, 255, 0.3);
-      transform: translateY(-2px);
+   .hero-buttons .slide-btn {
+      min-width: 160px;
    }
 
    /* Visual del código */
@@ -188,21 +161,6 @@ const [skill1, skill2] = ["Angular", "Spring Boot"];
    }
 
    /* Animaciones */
-   @keyframes wave {
-      0%,
-      100% {
-         transform: rotate(0deg);
-      }
-
-      25% {
-         transform: rotate(20deg);
-      }
-
-      75% {
-         transform: rotate(-20deg);
-      }
-   }
-
    @keyframes slideInLeft {
       from {
          opacity: 0;
@@ -264,12 +222,6 @@ const [skill1, skill2] = ["Angular", "Spring Boot"];
       .tech-stack {
          justify-content: center;
       }
-
-      .shape-1,
-      .shape-2,
-      .shape-3 {
-         display: none;
-      }
    }
 
    @media (width < 480px) {
@@ -280,12 +232,6 @@ const [skill1, skill2] = ["Angular", "Spring Boot"];
       .hero-buttons {
          flex-direction: column;
          align-items: center;
-      }
-
-      .btn {
-         width: 100%;
-         max-width: 250px;
-         justify-content: center;
       }
    }
 </style>

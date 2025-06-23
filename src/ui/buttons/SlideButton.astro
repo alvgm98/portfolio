@@ -1,13 +1,19 @@
 ---
 import { Image } from "astro:assets";
 
-const { className, text, icon } = Astro.props;
+const { className, text, icon, iconOffsetY = 0 } = Astro.props;
 ---
 
 <button class={`slide-btn ${className}`}>
    <div class="slider">
       <span>{text}</span>
-      <Image src={icon} alt="Arrow Icon" width={24} height={24} />
+      <Image
+         src={icon}
+         alt="Arrow Icon"
+         width={24}
+         height={24}
+         style={`transform: translateY(${iconOffsetY})`}
+      />
    </div>
 </button>
 
@@ -29,10 +35,6 @@ const { className, text, icon } = Astro.props;
       transition: all 0.3s ease;
    }
 
-   .slide-btn:hover .slider {
-      transform: translateY(-43%);
-   }
-
    .slider {
       transform: translateY(25%);
 
@@ -44,6 +46,10 @@ const { className, text, icon } = Astro.props;
       transition: 300ms;
    }
 
+   .slide-btn:hover .slider {
+      transform: translateY(-43%);
+   }
+
    .primary {
       background: var(--primary-gradient);
       box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
@@ -52,5 +58,18 @@ const { className, text, icon } = Astro.props;
    .primary:hover {
       transform: translateY(-2px);
       box-shadow: 0 12px 30px rgba(102, 126, 234, 0.4);
+   }
+
+   .secondary {
+      background: transparent;
+      color: var(--text-primary);
+      border: 2px solid var(--border-color);
+      backdrop-filter: blur(10px);
+   }
+
+   .secondary:hover {
+      background: var(--card-bg);
+      border-color: #ffffff4d;
+      transform: translateY(-2px);
    }
 </style>
